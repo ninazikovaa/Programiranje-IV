@@ -88,7 +88,6 @@ public:
         while (bfs(S, T)) {
             vector<int> v(n + 1, 0);
 
-            // Fixing the while condition:
             while (int fl = send_flow(S, INF, T, v)) {
                 res += fl;
             }
