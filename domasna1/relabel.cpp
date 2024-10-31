@@ -108,3 +108,27 @@ int main() {
   
     return 0;
 }
+
+/*
+Се користи за наоѓање на maximum flow во еден flow graph.
+Од почетниот node, пушти вода до сите негови соседи
+Дозволено е да има и вишок вода во едно теме
+Ако има вишок вода, тогаш потребно е да се испразни таа вода до теме кое е со помала висина
+
+
+Height на едно теме со одредува според тоа дали може да пуштиме вода од тоа теме до некој негов сосед.
+
+Excess flow → збир на flow до темето - збир од изваден flow од темето, total inflow - total outflow 
+
+
+Preflow, initialize height of each node
+While push() or relabel() → do push() or relabel()
+Return flow;
+
+preflow():
+Height, flow на секое теме ќе биде еднакво на 0
+Height на source темето е еднакво со бројот на соседи на source
+Секој edge ќе има flow од 0
+Само соседите на source ќе имаат flow, excess flow еднаков на иницијалниот капацитет
+
+*/
