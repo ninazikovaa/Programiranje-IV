@@ -68,10 +68,8 @@ struct PatriciaTrie {
     bool search(string k) {
         
         PatriciaTrieNode * tmp_node = search_node(root, k);
-        if(tmp_node and tmp_node->data == k)
-            return true;
-        else
-            return false;
+        
+        return (tmp_node and tmp_node->data == k);
     }
     
     PatriciaTrieNode * insert_node(PatriciaTrieNode * node, string value) {
@@ -155,3 +153,4 @@ int main() {
     
     return 0;
 }
+
