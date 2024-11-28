@@ -8,7 +8,7 @@ const int ALPHABET_SIZE = 36;
 map<wchar_t, int> alphabet; // мапирање од буква до индекс
 map<int, wchar_t> rev_alpha; // обратна мапа, од индекс до буква
 
-// Структура на јазол (node) за Trie
+
 struct node {
     node * children_of_node[ALPHABET_SIZE]; // деца јазли за секоја буква
     bool is_end_of_word; // дали е крај на зборот
