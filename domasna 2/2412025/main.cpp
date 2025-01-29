@@ -9,6 +9,22 @@ private:
     bool is_negative; 
     vector<int> data; 
 
+    // Споредба на апсолутните вредности
+    static int abs_compare(const LONG_INT& a, const LONG_INT& b) { 
+        if (a.data.size() != b.data.size()) return a.data.size() - b.data.size();
+        for (int i = a.data.size() - 1; i >= 0; --i) {
+            if (a.data[i] != b.data[i]) return a.data[i] - b.data[i];
+        }
+        return 0;
+    }
+
+    // Враќа апсолутна вредност
+    static LONG_INT abs(const LONG_INT& x) {
+        LONG_INT result = x;
+        result.is_negative = false;
+        return result;
+    }
+
 public:
     LONG_INT() : is_negative(false) {} 
 
@@ -138,7 +154,7 @@ public:
 
     // Делење
     LONG_INT operator/(const LONG_INT& other) const {
-        //if (other == LONG_INT("0")) throw runtime_error("Division by zero!"); // Проверка за делење со 0
+        //if (other == LONG_INT("0")) throw runtime_error("Division by zero!"); 
 
         LONG_INT result, remainder;
         result.is_negative = (is_negative != other.is_negative); // Дефинирање на знакот на резултатот
@@ -168,22 +184,8 @@ public:
         return is_negative == other.is_negative && data == other.data;
     }
 
-private:
-    // Споредба на апсолутните вредности
-    static int abs_compare(const LONG_INT& a, const LONG_INT& b) { 
-        if (a.data.size() != b.data.size()) return a.data.size() - b.data.size();
-        for (int i = a.data.size() - 1; i >= 0; --i) {
-            if (a.data[i] != b.data[i]) return a.data[i] - b.data[i];
-        }
-        return 0;
-    }
 
-    // Враќа апсолутна вредност
-    static LONG_INT abs(const LONG_INT& x) {
-        LONG_INT result = x;
-        result.is_negative = false;
-        return result;
-    }
+    
 };
 
 int main() {
